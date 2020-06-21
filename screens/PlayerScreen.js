@@ -45,7 +45,7 @@ PlayerScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     alignItems:"center",
     justifyContent:"center",
   },
