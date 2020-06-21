@@ -3,7 +3,8 @@ import * as React from 'react';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import BrowseScreen from '../screens/BrowseScreen';
+import PlayerScreen from '../screens/PlayerScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -17,20 +18,31 @@ export default function BottomTabNavigator({ navigation, route }) {
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
       <BottomTab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="BrowseMovies"
+        component={BrowseScreen}
         options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          title: 'Movies',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-film" />,
         }}
+        initialParams={{ text: "Movies" }}
       />
       <BottomTab.Screen
-        name="Links"
-        component={LinksScreen}
+        name="BrowseSeries"
+        component={BrowseScreen}
         options={{
-          title: 'Resources',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+          title: 'Series',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-tv" />,
         }}
+        initialParams={{ text: "Series" }}
+      />
+      <BottomTab.Screen
+        name="BrowseActors"
+        component={BrowseScreen}
+        options={{
+          title: 'Actors',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person" />,
+        }}
+        initialParams={{ text: "Actors" }}
       />
     </BottomTab.Navigator>
   );
