@@ -15,7 +15,7 @@ export default function PlayerScreen({route}) {
     }
 },[])
   return (
-    <View>
+    <View style={styles.container}>
        {trailers ? 
        <YoutubePlayer
         ref={playerRef}
@@ -46,5 +46,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    alignItems:"center",
+    justifyContent:"center",
   },
 });

@@ -7,7 +7,7 @@ import BrowseScreen from '../screens/BrowseScreen';
 import PlayerScreen from '../screens/PlayerScreen';
 
 const BottomTab = createBottomTabNavigator();
-const INITIAL_ROUTE_NAME = 'Home';
+const INITIAL_ROUTE_NAME = 'BrowseMovies';
 
 export default function BottomTabNavigator({ navigation, route }) {
   // Set the header title on the parent stack navigator depending on the
