@@ -1,15 +1,11 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import * as React from "react";
+import { StyleSheet, View } from "react-native";
 
-import useCachedResources from './hooks/useCachedResources';
+import useCachedResources from "./hooks/useCachedResources";
 
-import MainNavigator from './navigation/MainStackNavigator';
+import MainNavigator from "./navigation/MainStackNavigator";
 
-const Stack = createStackNavigator();
-
-export default function App(props) {
+export default function App() {
   const isLoadingComplete = useCachedResources();
 
   if (!isLoadingComplete) {
@@ -17,7 +13,7 @@ export default function App(props) {
   } else {
     return (
       <View style={styles.container}>
-        <MainNavigator/>
+        <MainNavigator />
       </View>
     );
   }
@@ -26,13 +22,6 @@ export default function App(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
 });
-
-/*        {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
-        <NavigationContainer linking={LinkingConfiguration}>
-          <Stack.Navigator>
-            <Stack.Screen name="Root" component={BottomTabNavigator} />
-          </Stack.Navigator>
-        </NavigationContainer>*/
