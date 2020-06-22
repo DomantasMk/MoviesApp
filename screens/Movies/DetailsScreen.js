@@ -12,6 +12,9 @@ import SimpleButton from "../../components/SimpleButton";
 
 export default function DetailsScreen({ route, navigation }) {
   const [movie, setMovie] = React.useState();
+  //to do:
+  //Add some logic to cancel fetch requests on componentWillUnmount
+  //Reason: Possible memory leak if the user leaves the screen before we get the response 
   React.useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/movie/${route.params.id}?api_key=debfa0037881857def6d74b243adf4a3&language=en-US`
@@ -34,7 +37,7 @@ export default function DetailsScreen({ route, navigation }) {
           />
           <Text style={styles.details}>Movie Details</Text>
           <Text>{movie.overview}</Text>
-          <View style={styles.details}>
+          <View style={styles.button}>
             <SimpleButton
               onPress={() => {
                 navigation.navigate("Player", { videoID: route.params.id });
@@ -42,7 +45,7 @@ export default function DetailsScreen({ route, navigation }) {
               text="Play Trailer"
             />
           </View>
-          <View style={styles.details}>
+          <View style={styles.button}>
             <SimpleButton onPress={() => {}} text="Add To Library" />
           </View>
 
@@ -75,6 +78,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     fontSize: 20,
+  },
+  button:{
+    marginTop: 10,
+    marginBottom: 10,
   },
   poster: {
     width: (deviceWidth * 95) / 100,

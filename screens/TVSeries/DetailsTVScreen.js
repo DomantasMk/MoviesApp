@@ -34,7 +34,7 @@ export default function DetailsTVScreen({ route, navigation }) {
           />
           <Text style={styles.details}>Movie Details</Text>
           <Text>{series.overview}</Text>
-          <View style={styles.details}>
+          <View style={styles.button}>
             <SimpleButton
               onPress={() => {
                 navigation.navigate("PlayerTV", { videoID: route.params.id });
@@ -42,7 +42,7 @@ export default function DetailsTVScreen({ route, navigation }) {
               text="Play Trailer"
             />
           </View>
-          <View style={styles.details}>
+          <View style={styles.button}>
             <SimpleButton onPress={() => {}} text="Add To Library" />
           </View>
           <SeriesList
@@ -74,6 +74,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     fontSize: 20,
+  },
+  button:{
+    marginTop: 10,
+    marginBottom: 10,
   },
   poster: {
     width: (deviceWidth * 95) / 100,
