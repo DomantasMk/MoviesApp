@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Image, ScrollView, StyleSheet, Text, Dimensions, View, TouchableOpacity, FlatList } from 'react-native';
 export default function MovieList({ navigation, url, title }) {
-    const [movies, setMovies] = React.useState();
+    const [series, setSeries] = React.useState();
     const [page, setPage] = React.useState(1);
     React.useEffect(() =>{
         if(url){
@@ -10,14 +10,15 @@ export default function MovieList({ navigation, url, title }) {
             .then(result => 
               {
                 //Only save the fields we need for optimization purposes
-                const results = result.results.map((({ id, poster_path, title }) => ({ id, poster_path, title })))
-                if(movies)
+                const results = result.results.map((({ id, poster_path, name }) => ({ id, poster_path, name })))
+                if(series)
                 {
-                  setMovies([...movies,...results]);
+                  setSeries([...series,...results]);
                 }
                 else
                 {
-                  setMovies(results);
+                    
+                  setSeries(results);
                 }
               })
         }
@@ -25,12 +26,12 @@ export default function MovieList({ navigation, url, title }) {
 
     return (
         <View >
-          {movies ? 
+          {series ? 
         <View style={styles.container}>
           <Text style={styles.categoryTitle}>{title}</Text>
           <FlatList
-            data={movies}
-            renderItem={({item}) => <TouchableOpacity onPress={() =>{navigation.push('Details',{id:item.id})}} style={styles.movie}><Image style={styles.poster} source={{uri:`http://image.tmdb.org/t/p/w400${item.poster_path}`}}/><Text>{item.title.substr(0,30)}{item.title.length > 30 ? "...":""}</Text></TouchableOpacity>}
+            data={series}
+            renderItem={({item}) => <TouchableOpacity onPress={() =>{navigation.push('DetailsTV',{id:item.id})}} style={styles.movie}><Image style={styles.poster} source={{uri:`http://image.tmdb.org/t/p/w400${item.poster_path}`}}/><Text>{item.name.substr(0,26)}{item.name.length > 30 ? "...":""}</Text></TouchableOpacity>}
             keyExtractor={(item,index)=> index.toString()}
             horizontal={true}
             onEndReached={() =>{setPage(page+1)}}

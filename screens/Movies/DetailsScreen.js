@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Image, Button, StyleSheet, Text, Dimensions, View, ScrollView } from 'react-native';
-import MovieList from '../components/MovieList';
+import MovieList from '../../components/MovieList';
 
 export default function DetailsScreen({route,navigation}) {
   const [movie, setMovie] = React.useState();

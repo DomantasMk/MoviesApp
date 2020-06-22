@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, SafeAreaView, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 
-import MovieList from '../components/MovieList';
+import MovieList from '../../components/MovieList';
 
 let urls =[
  {title:"Trending movies",key:"1", url:"https://api.themoviedb.org/3/movie/popular?api_key=debfa0037881857def6d74b243adf4a3&language=en-US&page="}
@@ -10,29 +10,18 @@ let urls =[
 
 export default function BrowseScreen({route, navigation}) {
   return (
-    <SafeAreaView style={styles.container}>
-      {/*urls.map((data,i) => <View key={i}><MovieList navigation={navigation} title={data.title} url={data.url}/></View>)*/}
-      <View>      
+      <View style={styles.container}>      
         <FlatList
           data={urls}
-          renderItem={({item}) => <MovieList navigation={navigation} title={item.title} url={item.url} key={item.key}/>}
+          renderItem={({item}) => <MovieList navigation={navigation} title={item.title} url={item.url}/>}
         />
       </View>
-
-    </SafeAreaView>
   );
 }
-
-BrowseScreen.navigationOptions = {
-  header: null,
-};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
   },
-  listItem:{
-   
-  }
 });

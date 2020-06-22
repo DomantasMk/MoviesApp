@@ -2,9 +2,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import BrowseScreen from '../screens/BrowseScreen';
-import PlayerScreen from '../screens/PlayerScreen';
+import BrowseScreen from '../screens/Movies/BrowseScreen';
+import BrowseTVScreen from '../screens/TVSeries/BrowseTVScreen';
+import BrowseActorsScreen from '../screens/Actors/BrowseActorsScreen';
+
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'BrowseMovies';
@@ -28,7 +29,7 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
       <BottomTab.Screen
         name="BrowseSeries"
-        component={BrowseScreen}
+        component={BrowseTVScreen}
         options={{
           title: 'Series',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-tv" />,
@@ -37,7 +38,7 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
       <BottomTab.Screen
         name="BrowseActors"
-        component={BrowseScreen}
+        component={BrowseActorsScreen}
         options={{
           title: 'Actors',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person" />,

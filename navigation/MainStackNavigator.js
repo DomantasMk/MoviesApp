@@ -4,8 +4,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from '../screens/HomeScreen';
 import bottomTabNavigator from '../navigation/BottomTabNavigator';
-import DetailsScreen from '../screens/DetailsScreen';
-import PlayerScreen from '../screens/PlayerScreen';
+import DetailsScreen from '../screens/Movies/DetailsScreen';
+import DetailsTVScreen from '../screens/TVSeries/DetailsTVScreen';
+import PlayerScreen from '../screens/Movies/PlayerScreen';
+import PlayerScreenTV from '../screens/TVSeries/PlayerScreenTV';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +22,9 @@ export default function MainStackNavigator() {
         />
         <Stack.Screen name="Browse" component={bottomTabNavigator}/>
         <Stack.Screen name="Details" component={DetailsScreen}/>
+        <Stack.Screen name="DetailsTV" component={DetailsTVScreen}/>
         <Stack.Screen name="Player" component={PlayerScreen}/>
+        <Stack.Screen name="PlayerTV" component={PlayerScreenTV}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
