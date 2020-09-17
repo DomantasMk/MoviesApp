@@ -8,7 +8,6 @@ Finished the assignment wtih a solution for reviewing movies. Created a React Na
 ![](ScreenCast1.jpg)
 ![](ScreenCast2.jpg)
 ![](ScreenCast3.jpg)
-![](ScreenCast4.jpg)
 ![](ScreenCast5.jpg)
 
 # Functionality
